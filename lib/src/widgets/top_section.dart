@@ -4,6 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../utils/app_styles.dart';
+import 'text_header_with_button.dart';
+import 'text_input.dart';
 
 class TopSection extends StatelessWidget {
   const TopSection({Key? key}) : super(key: key);
@@ -11,10 +13,14 @@ class TopSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: Adaptive.px(20)),
+      padding: EdgeInsets.symmetric(
+        horizontal: Adaptive.px(20),
+      ),
       child: Column(
         children: [
-          const Gap(40),
+          Gap(
+            Adaptive.px(20),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -25,7 +31,9 @@ class TopSection extends StatelessWidget {
                     "Good Morning!",
                     style: Styles.headLineStyles3,
                   ),
-                  const Gap(5),
+                  Gap(
+                    Adaptive.px(5),
+                  ),
                   Text(
                     "Book Tickets",
                     style: Styles.headlineStyles1,
@@ -47,47 +55,22 @@ class TopSection extends StatelessWidget {
               ),
             ],
           ),
-          const Gap(25),
-          Container(
-            decoration: BoxDecoration(
-              color: const Color(0xFFF4F6FD),
-              borderRadius: BorderRadius.circular(
-                Adaptive.px(10),
-              ),
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: Adaptive.px(12),
-              vertical: Adaptive.px(12),
-            ),
-            child: Row(
-              children: [
-                const Icon(
-                  FluentSystemIcons.ic_fluent_search_regular,
-                  color: Color(0xFFBFC205),
-                ),
-                Text(
-                  "Search",
-                  style: Styles.headLineStyles4,
-                )
-              ],
-            ),
+          Gap(
+            Adaptive.px(25),
           ),
-          const Gap(40),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Upcoming Flights",
-                style: Styles.headLineStyles2,
-              ),
-              InkWell(
-                onTap: () => {print("You are tapped")},
-                child: Text(
-                  "View all",
-                  style: Styles.textStyle.copyWith(color: Styles.primaryColor),
-                ),
-              )
-            ],
+          TextInput(
+            bgColor: const Color(0xFFF4F6FD),
+            icon: FluentSystemIcons.ic_fluent_search_regular,
+            iconColor: const Color(0xFFBFC205),
+            placeholder: "Search",
+            textStyle: Styles.headLineStyles4,
+          ),
+          Gap(
+            Adaptive.px(40),
+          ),
+          const TextHeaderWithButton(
+            headingText: "Upcoming Flights",
+            buttonText: "View all",
           )
         ],
       ),

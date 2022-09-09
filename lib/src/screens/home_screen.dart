@@ -6,6 +6,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../utils/app_styles.dart';
 import '../widgets/hotel_card.dart';
+import '../widgets/text_header_with_button.dart';
 import '../widgets/ticket_view.dart';
 import '../widgets/top_section.dart';
 
@@ -64,21 +65,9 @@ class HotelsHeader extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: Adaptive.px(20),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            "Hotels",
-            style: Styles.headLineStyles2,
-          ),
-          InkWell(
-            onTap: () => {print("You are tapped")},
-            child: Text(
-              "View all",
-              style: Styles.textStyle.copyWith(color: Styles.primaryColor),
-            ),
-          )
-        ],
+      child: const TextHeaderWithButton(
+        headingText: "Hotels",
+        buttonText: "View all",
       ),
     );
   }
