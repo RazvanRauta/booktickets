@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DottedLine extends StatelessWidget {
   const DottedLine({
@@ -11,7 +12,7 @@ class DottedLine extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
-            height: 24,
+            height: Adaptive.px(24),
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constrains) {
                 return Flex(
@@ -20,10 +21,10 @@ class DottedLine extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: List.generate(
                     (constrains.constrainWidth() / 6).floor(),
-                    (index) => const SizedBox(
-                      width: 3,
-                      height: 1,
-                      child: DecoratedBox(
+                    (index) => SizedBox(
+                      width: Adaptive.px(3),
+                      height: Adaptive.px(1),
+                      child: const DecoratedBox(
                         decoration: BoxDecoration(
                           color: Colors.white,
                         ),

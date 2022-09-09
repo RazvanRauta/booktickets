@@ -1,6 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../utils/app_styles.dart';
 
@@ -10,7 +11,7 @@ class TopSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: Adaptive.px(20)),
       child: Column(
         children: [
           const Gap(40),
@@ -32,10 +33,12 @@ class TopSection extends StatelessWidget {
                 ],
               ),
               Container(
-                height: 50,
-                width: 50,
+                height: Adaptive.px(50),
+                width: Adaptive.px(50),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(
+                    Adaptive.px(10),
+                  ),
                   image: const DecorationImage(
                     fit: BoxFit.fitHeight,
                     image: AssetImage("lib/src/assets/images/img_1.png"),
@@ -48,9 +51,14 @@ class TopSection extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               color: const Color(0xFFF4F6FD),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(
+                Adaptive.px(10),
+              ),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            padding: EdgeInsets.symmetric(
+              horizontal: Adaptive.px(12),
+              vertical: Adaptive.px(12),
+            ),
             child: Row(
               children: [
                 const Icon(
